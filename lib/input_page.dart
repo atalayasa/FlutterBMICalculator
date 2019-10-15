@@ -7,6 +7,7 @@ const double bottomContainerHeight = 80.0;
 const Color activeCardColor = Color(0xFF1D1E33);
 const Color inactiveCardColor = Color(0xFF111328);
 const Color calculateButtonColor = Color(0xFFEB1555);
+enum Gender { Male, Female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -14,27 +15,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
-
-  // 1 = male 2 = female
-  void updateColor(int gender) {
-    if (gender == 1) {
-      if (maleCardColor == inactiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      } else {
-        maleCardColor = inactiveCardColor;
-      }
-    } else {
-      if (femaleCardColor == inactiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      } else {
-        femaleCardColor = inactiveCardColor;
-      }
-    }
-  }
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +32,11 @@ class _InputPageState extends State<InputPage> {
                     child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColor(1);
+                      selectedGender = Gender.Male;
                     });
                   },
                   child: new ReusableCard(
-                    color: maleCardColor,
+                    color: selectedGender == Gender.Male ? activeCardColor : inactiveCardColor,
                     cardChild: new ReusableCardChild(
                       title: "MALE",
                       icon: FontAwesomeIcons.mars,
@@ -66,11 +47,11 @@ class _InputPageState extends State<InputPage> {
                     child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColor(2);
+                      selectedGender = Gender.Female;
                     });
                   },
                   child: new ReusableCard(
-                    color: femaleCardColor,
+                    color: selectedGender == Gender.Female ? activeCardColor : inactiveCardColor,
                     cardChild: new ReusableCardChild(
                       title: "FEMALE",
                       icon: FontAwesomeIcons.venus,
