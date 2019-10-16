@@ -2,5 +2,5 @@
 
 It is the self learning Flutter BMI application written Dart language.
 
-![alt text](https://github.com/atalayasa/FlutterQuizApp/blob/master/assets/app1.png)
-![alt text](https://github.com/atalayasa/FlutterQuizApp/blob/master/assets/app2.png)
+![alt text](https://github.com/atalayasa/FlutterBMICalculator/blob/master/assets/app1.png)
+![alt text](https://github.com/atalayasa/FlutterBMICalculator/blob/master/assets/app2.png)
